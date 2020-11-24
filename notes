@@ -1,0 +1,6 @@
+1 - ) _search.py in grid.fit() has been modified with self.hist = self.best_params.fit()
+in def fit() method
+
+2 - ) There are some modifications in KerasRegressor fit() method
+
+3 - )
