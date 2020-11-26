@@ -67,9 +67,15 @@ class Wrap:
         my_callbacks = [es, mc]
 
         self.rand = RandomizedSearchCV(estimator=self.keras_regressor, param_distributions=params, n_iter=8)
+        from my_timing import Stopwatch
+        stop_watch = Stopwatch()
+        stop_watch.start_method()
         rand_history = self.rand.fit(X=self.data_obj.x_train, y=self.data_obj.y_train,
                       validation_data=(self.data_obj.x_validation, self.data_obj.y_validation),
-                      verbose=0, callbacks=my_callbacks)
+                      verbose=1, callbacks=my_callbacks)
+
+        stop_watch.stop_method()
+        print(stop_watch.value)
 
         return rand_history
 
